@@ -8,11 +8,18 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Animated Glowing Particles -->
+    <div id="particles"></div>
+    <div id="floating-hearts"></div>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-glow"></div>
+        <div class="hero-img-frame">
+            <img src="https://ui-avatars.com/api/?name=Rahul&background=7f53ac&color=fff&rounded=true&size=180" alt="Rahul Photo" class="rahul-photo" />
+        </div>
         <h1>Happy Birthday Rahul 🎉</h1>
-        <h2 class="subtitle">To the one who means everything</h2>
+        <h2 class="subtitle telugu">దోస్తీలో నువ్వు నేను… ఒక ప్రాణం ఒక దేహం ❤️</h2>
     </section>
 
     <!-- Emotional Message Section -->
@@ -20,31 +27,42 @@
         <div class="glass-card">
             <p class="main-message">
                 You are not just my friend.<br>
-                You are my brother, my support, my happiness, my everything.<br>
-                Life feels brighter and more beautiful with you in it.<br>
-                <span class="highlight">Thank you for being my constant, my strength, and my joy.</span><br><br>
+                You are my brother, my strength, my happiness, my everything.<br>
+                Life is more beautiful with you in it.<br>
+                <span class="highlight">Thank you for being my constant, my support, and my joy.</span><br><br>
                 <span class="big-wish">Happy Birthday to the most special person in my life!</span>
             </p>
         </div>
+    </section>
+
+    <!-- Memory Gallery -->
+    <section class="gallery-section">
+        <h3>Memories</h3>
+        <div class="gallery-slider" id="gallery-slider">
+            <div class="gallery-img gallery-placeholder">Friendship Photo 1</div>
+            <div class="gallery-img gallery-placeholder">Friendship Photo 2</div>
+            <div class="gallery-img gallery-placeholder">Friendship Photo 3</div>
+        </div>
+        <button class="gallery-prev" id="gallery-prev">&#10094;</button>
+        <button class="gallery-next" id="gallery-next">&#10095;</button>
     </section>
 
     <!-- Surprise Button -->
     <section class="surprise-section">
         <button id="surprise-btn" class="surprise-btn">Click for Love ❤️</button>
         <div id="hidden-message" class="hidden-message">
-            No matter what happens,<br>
-            You’ll always be one of the most important people in my life.<br>
-            <span class="highlight">Happy Birthday Rahul ❤️</span>
+            You are one of the most important people in my life.
         </div>
         <canvas id="confetti-canvas"></canvas>
     </section>
 
     <!-- Music Feature -->
     <section class="music-section">
-        <button id="music-toggle" class="music-toggle">🎵 Music ON/OFF</button>
+        <button id="music-toggle" class="music-toggle">🎵 Play Friendship Song</button>
         <audio id="birthday-music" loop>
-            <source src="music/birthday.mp3" type="audio/mpeg">
+            <source src="music/dosti-lo-nenu.mp3" type="audio/mpeg">
         </audio>
+        <div class="music-caption">Dedicated to you: Dosti Lo Nenu (Telugu)</div>
     </section>
 
     <!-- Footer -->

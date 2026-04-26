@@ -1,4 +1,5 @@
 
+
 // Confetti Animation
 function launchConfetti() {
 	const canvas = document.getElementById('confetti-canvas');
@@ -64,40 +65,80 @@ if (musicBtn && music) {
 	musicBtn.addEventListener('click', () => {
 		if (!musicOn) {
 			music.play();
-			musicBtn.textContent = '🎵 Music ON';
+			musicBtn.textContent = '🎵 Pause Friendship Song';
 		} else {
 			music.pause();
-			musicBtn.textContent = '🎵 Music OFF';
+			musicBtn.textContent = '🎵 Play Friendship Song';
 		}
 		musicOn = !musicOn;
 	});
 }
 
-// Floating Particles
-function createParticles() {
-	for (let i = 0; i < 18; i++) {
-		const particle = document.createElement('div');
-		particle.className = 'particle';
-		const size = Math.random() * 18 + 8;
-		particle.style.width = `${size}px`;
-		particle.style.height = `${size}px`;
-		particle.style.background = `radial-gradient(circle, #ff4da6 0%, #7f53ac 80%, transparent 100%)`;
-		particle.style.top = `${Math.random() * 100}vh`;
-		particle.style.left = `${Math.random() * 100}vw`;
-		particle.style.opacity = Math.random() * 0.5 + 0.2;
-		particle.style.animation = `float ${Math.random() * 8 + 8}s ease-in-out infinite`;
-		document.body.appendChild(particle);
+// Animated Glowing Particles
+function createGlowingParticles() {
+	const particles = document.getElementById('particles');
+	for (let i = 0; i < 24; i++) {
+		const p = document.createElement('div');
+		p.className = 'particle';
+		const size = Math.random() * 18 + 12;
+		p.style.width = `${size}px`;
+		p.style.height = `${size}px`;
+		p.style.position = 'absolute';
+		p.style.top = `${Math.random() * 100}vh`;
+		p.style.left = `${Math.random() * 100}vw`;
+		p.style.background = `radial-gradient(circle, #ff4da6 0%, #7f53ac 80%, transparent 100%)`;
+		p.style.opacity = Math.random() * 0.4 + 0.2;
+		p.style.borderRadius = '50%';
+		p.style.filter = 'blur(2px)';
+		p.style.animation = `float ${Math.random() * 8 + 8}s ease-in-out infinite`;
+		particles.appendChild(p);
 	}
 }
 
-// Floating animation
+// Floating Hearts Animation
+function createFloatingHearts() {
+	const hearts = document.getElementById('floating-hearts');
+	for (let i = 0; i < 16; i++) {
+		const h = document.createElement('div');
+		h.className = 'floating-heart';
+		h.innerHTML = '❤️';
+		h.style.position = 'absolute';
+		h.style.left = `${Math.random() * 100}vw`;
+		h.style.bottom = `-${Math.random() * 40 + 20}px`;
+		h.style.fontSize = `${Math.random() * 24 + 18}px`;
+		h.style.opacity = Math.random() * 0.5 + 0.3;
+		h.style.animation = `heartFloat ${Math.random() * 8 + 8}s linear infinite`;
+		h.style.animationDelay = `${Math.random() * 8}s`;
+		hearts.appendChild(h);
+	}
+}
+
+// Add keyframes for hearts and particles
 const style = document.createElement('style');
-style.innerHTML = `@keyframes float { 0% { transform: translateY(0); } 50% { transform: translateY(-40px); } 100% { transform: translateY(0); } }`;
+style.innerHTML = `
+@keyframes float { 0% { transform: translateY(0); } 50% { transform: translateY(-40px); } 100% { transform: translateY(0); } }
+@keyframes heartFloat { 0% { transform: translateY(0) scale(1); opacity: 1; } 80% { opacity: 0.7; } 100% { transform: translateY(-110vh) scale(1.2); opacity: 0; } }
+`;
 document.head.appendChild(style);
-createParticles();
+createGlowingParticles();
+createFloatingHearts();
 
 // Responsive confetti canvas
 window.addEventListener('resize', () => {
 	confettiCanvas.width = window.innerWidth;
 	confettiCanvas.height = window.innerHeight;
 });
+
+// Gallery Slider
+const gallerySlider = document.getElementById('gallery-slider');
+const galleryPrev = document.getElementById('gallery-prev');
+const galleryNext = document.getElementById('gallery-next');
+if (gallerySlider && galleryPrev && galleryNext) {
+	let scrollAmount = 0;
+	galleryPrev.addEventListener('click', () => {
+		gallerySlider.scrollBy({ left: -220, behavior: 'smooth' });
+	});
+	galleryNext.addEventListener('click', () => {
+		gallerySlider.scrollBy({ left: 220, behavior: 'smooth' });
+	});
+}
