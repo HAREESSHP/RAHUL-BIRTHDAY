@@ -1,0 +1,208 @@
+/* Glassmorphism, gradients, and base styles will be added here */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #181c2f 0%, #2d1e4f 60%, #ff4da6 100%);
+    color: #fff;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Glassmorphism Card */
+.glass-card, .footer-glass {
+    background: rgba(255,255,255,0.08);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1.5px solid rgba(255,255,255,0.18);
+    padding: 2rem 2.5rem;
+    margin: 2rem auto;
+    max-width: 600px;
+    text-align: center;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 40vh;
+    position: relative;
+    z-index: 1;
+}
+.hero-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, #ff4da6 0%, #2d1e4f 80%, transparent 100%);
+    filter: blur(80px);
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    opacity: 0.7;
+    pointer-events: none;
+}
+.hero h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+    z-index: 1;
+}
+.subtitle {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: #ffb6e6;
+    z-index: 1;
+}
+
+/* Main Message */
+.main-message {
+    font-size: 1.2rem;
+    line-height: 2.1rem;
+    color: #fff;
+}
+.highlight {
+    color: #ff4da6;
+    font-weight: 600;
+    font-size: 1.1em;
+}
+.big-wish {
+    display: block;
+    margin-top: 1.2rem;
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 0 0 8px #ff4da6;
+}
+
+/* Surprise Section */
+.surprise-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2.5rem 0 1.5rem 0;
+    position: relative;
+}
+.surprise-btn {
+    background: linear-gradient(90deg, #ff4da6 0%, #7f53ac 100%);
+    color: #fff;
+    border: none;
+    border-radius: 32px;
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    box-shadow: 0 4px 24px 0 rgba(255,77,166,0.18);
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+    margin-bottom: 1.5rem;
+    outline: none;
+}
+.surprise-btn:hover {
+    transform: scale(1.07);
+    box-shadow: 0 8px 32px 0 rgba(255,77,166,0.28);
+    background: linear-gradient(90deg, #7f53ac 0%, #ff4da6 100%);
+}
+.hidden-message {
+    display: none;
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+    color: #fff;
+    background: rgba(255,255,255,0.10);
+    border-radius: 18px;
+    padding: 1.2rem 2rem;
+    box-shadow: 0 2px 12px 0 rgba(255,77,166,0.10);
+    animation: fadeIn 1.2s;
+}
+.hidden-message.show {
+    display: block;
+    animation: fadeIn 1.2s;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Confetti Canvas */
+#confetti-canvas {
+    position: absolute;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* Music Section */
+.music-section {
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem 0 0.5rem 0;
+}
+.music-toggle {
+    background: rgba(255,255,255,0.10);
+    color: #ff4da6;
+    border: none;
+    border-radius: 24px;
+    padding: 0.7rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 12px 0 rgba(255,77,166,0.10);
+    transition: background 0.2s, color 0.2s;
+}
+.music-toggle:hover {
+    background: #ff4da6;
+    color: #fff;
+}
+
+/* Footer */
+footer {
+    width: 100%;
+    margin-top: 2.5rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer-glass {
+    font-size: 1.1rem;
+    padding: 0.7rem 2rem;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.10);
+    box-shadow: 0 2px 12px 0 rgba(255,77,166,0.10);
+    color: #fff;
+}
+
+/* Floating Particles (optional) */
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .glass-card, .footer-glass {
+        padding: 1.2rem 0.7rem;
+        max-width: 98vw;
+    }
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .big-wish {
+        font-size: 1.1rem;
+    }
+    .main-message {
+        font-size: 1rem;
+    }
+    .surprise-btn {
+        font-size: 1rem;
+        padding: 0.7rem 1.2rem;
+    }
+}
